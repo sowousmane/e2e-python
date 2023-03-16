@@ -12,14 +12,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      #- run: printenv
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
           python-version: 3.x
-      # - run: pip install -r requirements.txt
-      # - run: python -m pytest
-      # - run: echo "🎉 The job was successful."
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -34,20 +30,4 @@ jobs:
       - name: Test with pytest
         run: |
           python -m pytest
-  # build-and-push:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - name: List files in the repository
-  #       run: |
-  #         docker ps
-  #         docker images
-  #         ls -al
-  #         printenv
-  #         docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p  ${{ secrets.DOCKERHUB_PASSWORD }}
-  #         docker build -t kbosow/docs-soowcode:dev .
-  #         docker push kbosow/docs-soowcode:dev
-
-# docker push kbosow/docs-soowcode:${GITHUB_SHA}
-# docker build -t kbosow/docs-soowcode:${GITHUB_SHA} .
-
+ 
